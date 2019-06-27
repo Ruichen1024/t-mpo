@@ -1,8 +1,47 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
     <div class="jumbotron">
-        <h1>Profiles</h1>
+        <h1>Set your personal sleep hours target</h1>
     </div>
+    <table class="table table-bordered table-dark">
+      <tbody>
+        <tr>
+          <td>Start Time</td>
+          <td>
+              <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Time
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Sleep Hours</td>
+          <td>
+              <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Time
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Estimated Wakeup Time</td>
+        </tr>
+      </tbody>
+    </table>
+
+
     <ol>
     <% for(i = 0; i<profiles.length; i++){  %>
         <li>
