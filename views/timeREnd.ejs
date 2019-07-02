@@ -1,0 +1,13 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<div class="jumbotron">
+    <h1>Time has start recording.</h1>
+    <p>Click the "end" button to end recording time!
+       </p>
+</div>
+
+<form method="post" action="/processEnd">
+  <input class="btn btn-lg btn-warning" type="submit" value="End">
+</form>
+
+<%- include('bootfooter') -%>
