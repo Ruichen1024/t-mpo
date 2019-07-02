@@ -161,6 +161,9 @@ app.get('/', function(req, res, next) {
   res.render('index',{title:"YellowCartwheel"});
 });
 
+app.get('/about', function(req, res, next) {
+  res.render('about',{title:"YellowCartwheel"});
+});
 
 app.get('/forum',forumPostController.getAllForumPosts)
 
