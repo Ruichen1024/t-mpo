@@ -1,6 +1,13 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
     <div class="jumbotron">
+  
+      <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+      <style>
+      *{
+      font-family: 'Dosis', sans-serif;
+      }
+      </style>
         <h1><%= user.userName %>'s tempo profile</h1>
         <img src="<%= user.profilePicURL%>" width="200">
         <hr>
