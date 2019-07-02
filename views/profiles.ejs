@@ -1,8 +1,49 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+<style>
+*{
+font-family: 'Dosis', sans-serif;
+}
+</style>
     <div class="jumbotron">
-        <h1>Profiles</h1>
+        <h1>Set your sleep schedule for today</h1>
     </div>
+    <table class="table table-bordered table-dark">
+      <tbody>
+        <tr>
+          <td>start time</td>
+          <td>
+            <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
+            <script>
+            $(function(){
+              $('#datetime12').combodate();
+            });
+            </script>
+          </td>
+        </tr>
+        <tr>
+          <td>Sleep Hours</td>
+          <td>
+              <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Time
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Estimated Wakeup Time</td>
+        </tr>
+      </tbody>
+    </table>
+
+
     <ol>
     <% for(i = 0; i<profiles.length; i++){  %>
         <li>

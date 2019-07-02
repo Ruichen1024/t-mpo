@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">TEMPO</a>
+
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="/">tempo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,12 +23,13 @@
             Plans
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/profiles">Today's Plan</a>
+            <a class="dropdown-item" href="/profiles">today</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/profile">Yesterday</a>
-            <a class="dropdown-item" href="/editProfile">Past Week</a>
-            <a class="dropdown-item" href="/profile">Tomorrow</a>
-            <a class="dropdown-item" href="/editProfile">Future Week</a>
+            <a class="dropdown-item" href="/profile">yesterday</a>
+            <a class="dropdown-item" href="/editProfile">past week</a>
+            <a class="dropdown-item" href="/profile">tomorrow</a>
+            <a class="dropdown-item" href="/schedule">my sleep schedule</a>
+
           </div>
         </li>
 
@@ -44,6 +47,9 @@
 
       <li class="nav-item">
         <a class="nav-link active" href="/logout"> Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/about"> About</a>
       </li>
       <% } else { %>
         <li class="nav-item">

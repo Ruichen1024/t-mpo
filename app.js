@@ -24,8 +24,6 @@ db.once('open', function() {
 const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
-const timeRecordingController = require('./controllers/timeRecordingController')
-
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // here we set up authentication with passport
@@ -137,6 +135,10 @@ app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile')
     });
 
+app.get('/schedule', isLoggedIn, function(req, res) {
+            res.render('schedule')
+    });
+
 app.get('/editProfile',isLoggedIn, (req,res)=>{
   res.render('editProfile')
 })
@@ -163,6 +165,9 @@ app.get('/', function(req, res, next) {
   res.render('index',{title:"tempo"});
 });
 
+app.get('/about', function(req, res, next) {
+  res.render('about',{title:"YellowCartwheel"});
+});
 
 app.get('/forum',forumPostController.getAllForumPosts)
 
