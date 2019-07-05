@@ -1,0 +1,9 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<div class="jumbotron">
+    <h1>Recording has been stopped.</h1>
+    <p>Your Start Time is:<%= TimeRecording[TimeRecording.length-2].startAt %> </p>   <br>
+    <p>Your End Time is:<%= TimeRecording[TimeRecording.length-1].endAt %> </p>   <br>
+</div>
+
+<%- include('bootfooter') -%>

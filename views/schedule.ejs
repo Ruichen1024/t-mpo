@@ -1,64 +1,21 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
+    <div class="jumbotron">
 
-
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
-    <base href="/">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 100;
-            font-family: 'Dosis', sans-serif;
-
-
-        }
-        html{
-          font-family: 'Dosis', sans-serif;
-        },
-        body {
-            width: 100%;
-            height: 100%;
-        }
-        .tempo{
-            width: 100%;
-            height: 95%;
-            min-width: 100%;
-            min-height: 100%;
-            position: relative;
-        }
-        .flex-center {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-        }
-
-        .tempo-title,
-        .tempo-sub-title {
-            width: 65%;
-            display: block;
-            text-align: center;
-            font-family: 'Dosis', sans-serif;
-        }
-        .tempo-title {
-            margin: 15% 0;
-
-        }
+      <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+      <style>
+      *{
+      font-family: 'Dosis', sans-serif;
+      }
       </style>
-  </head>
-      <div class="tempo flex-center">
-              <h1 class="tempo-title display-2 text-dark"><em>tempo</em></h1>
-              <h4 class="tempo-sub-title text-secondary text-dark"><strong>Sleep
-                <ul class="list">
-                    <li class="list-inline-item text-secondary"><a href="#" class="text-dark"><u>Soundly</u></a></li>
-                    <li class="list-inline-item text-secondary"><a href="#" class="text-dark"><u>Optimally</u></a></li>
-                    <li class="list-inline-item text-secondary"><a href="#" class="text-dark"><u>Profitably</u></a></li>
-                  </ul><strong></h4>
-          </div>
+        <h1><%= user.userName %>'s tempo sleep schedule</h1>
+        <img src="<%= user.profilePicURL%>" width="200">
+        <hr>
 
 
+        <p> Last updated on <%= user.lastUpdate %> </p>
+<a href="/editProfile">edit profile</a>
+    </div>
     <div class="container col-sm-4 col-md-7 col-lg-8 mt-5">
     <div class="card">
         <h3 class="card-header" id="monthAndYear"></h3>
@@ -237,4 +194,5 @@
 
   }
 </script>
+
 <%- include('bootfooter') -%>

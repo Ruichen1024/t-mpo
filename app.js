@@ -14,7 +14,7 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/myDB' );
+mongoose.connect( 'mongodb://localhost/mydb' );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -24,6 +24,7 @@ db.once('open', function() {
 const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
+const timeRecordingController = require('./controllers/timeRecordingController')
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // here we set up authentication with passport
@@ -62,7 +63,7 @@ const approvedLogins = ["tjhickey724@gmail.com","csjbs2018@gmail.com"];
 
 // here is where we check on their logged in status
 app.use((req,res,next) => {
-  res.locals.title="YellowCartwheel"
+  res.locals.title="tempo"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
       console.log("user has been Authenticated")
@@ -137,6 +138,10 @@ app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile')
     });
 
+app.get('/schedule', isLoggedIn, function(req, res) {
+            res.render('schedule')
+    });
+
 app.get('/editProfile',isLoggedIn, (req,res)=>{
   res.render('editProfile')
 })
@@ -160,9 +165,12 @@ app.use(function(req,res,next){
 
 
 app.get('/', function(req, res, next) {
-  res.render('index',{title:"YellowCartwheel"});
+  res.render('index',{title:"tempo"});
 });
 
+app.get('/about', function(req, res, next) {
+  res.render('about',{title:"YellowCartwheel"});
+});
 
 app.get('/forum',forumPostController.getAllForumPosts)
 
@@ -202,6 +210,21 @@ function processFormData(req,res,next){
 }
 
 
+app.post('/processStart',timeRecordingController.saveStartTime)
+
+app.post('/processEnd',timeRecordingController.saveEndTime)
+
+app.get('/timeResult', (req, res) => {
+  res.render('timeResult',{title:"timeResult"});
+});
+
+app.get('/timeRecording', (req, res) => {
+  res.render('timeRecording',{title:"timeRecording"});
+});
+
+app.get('/timeREnd', (req, res) => {
+  res.render('timeREnd',{title:"timeRecording"});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
