@@ -87,7 +87,9 @@ app.get('/login', function(req,res){
   res.render('login',{})
 })
 
-
+app.get('/calendar', function(req,res){
+  res.render('calendar',{})
+})
 
 // route for logging out
 app.get('/logout', function(req, res) {
