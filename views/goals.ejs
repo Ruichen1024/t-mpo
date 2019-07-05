@@ -1,0 +1,43 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+<style>
+*{
+font-family: 'Dosis', sans-serif;
+}
+</style>
+    <div class="jumbotron">
+        <h1>Set your sleep schedule for today</h1>
+    </div>
+    <table class="table table-bordered table-dark">
+      <tbody>
+        <tr>
+          <td>sleep start time</td>
+          <td>
+            <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
+            <script>
+            $(function(){
+              $('#datetime12').combodate();
+            });
+            </script>
+          </td>
+        </tr>
+
+        <tr>
+          <td>wake up time</td>
+          <td>
+            <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
+            <script>
+            $(function(){
+              $('#datetime12').combodate();
+            });
+            </script>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+
+<%- include('bootfooter') -%>
