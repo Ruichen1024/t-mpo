@@ -22,7 +22,7 @@ exports.saveGoal = ( req, res ) => {
 
   newGoal.save()
     .then( () => {
-      res.redirect( 'goals' );
+      res.redirect( '/feedbackGoals' );
     } )
     .catch( error => {
       res.send( error );

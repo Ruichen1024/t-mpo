@@ -186,7 +186,7 @@ app.post('/forum',forumPostController.saveForumPost)
 
 app.post('/forumDelete',forumPostController.deleteForumPost)
 
-app.post('/setGoal',goalController.saveGoal)
+app.post('/processGoals',goalController.saveGoal)
 
 app.get('/goals',goalController.getGoal)
 
