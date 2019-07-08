@@ -1,14 +1,14 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
     <div class="jumbotron">
-        <h1>Comments</h1>
+        <h1>My Sleep Goals</h1>
     </div>
     <ol>
-    <% for(i = 0; i<comments.length; i++){  %>
-        <li> <a href="/showComment/<%= comments[i]._id %>">
-              <%= comments[i].url %></a>
+    <% for(i = 0; i<goals.length; i++){  %>
+        <li> <a href="/showGoals/<%= goals[i]._id %>">
+              <%= goals[i].startAt %></a>
               <i>
-             <%= comments[i].comment %></\/i> </li>
+             <%= goals[i].endAt %></\/i> </li>
     <% } %>
     </ol>
 <%- include('bootfooter') -%>

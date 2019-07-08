@@ -59,9 +59,9 @@ exports.getGoal = ( req, res ) => {
   const id = req.params.id
   Goal.findOne({_id:id})
     .exec()
-    .then( ( goal ) => {
-      res.render( 'showGoal', {
-        goal:goal, title:"goal"
+    .then( ( goals ) => {
+      res.render( 'goals', {
+        goals:goals, title:"goals"
       } );
     } )
     .catch( ( error ) => {
