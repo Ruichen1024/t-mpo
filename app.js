@@ -25,7 +25,9 @@ const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
 const timeRecordingController = require('./controllers/timeRecordingController')
+
 const goalController = require('./controllers/goalController')
+
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // here we set up authentication with passport
