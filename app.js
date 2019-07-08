@@ -226,6 +226,10 @@ app.post('/processStart',timeRecordingController.saveStartTime)
 
 app.post('/processEnd',timeRecordingController.saveEndTime)
 
+app.get('/feedbackGoals', (req,res) => {
+  res.render('feedbackGoal',{title:"feedbackGoal"});
+});
+
 app.get('/timeResult', (req, res) => {
   res.render('timeResult',{title:"timeResult"});
 });
