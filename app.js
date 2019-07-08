@@ -229,6 +229,7 @@ app.post('/processEnd',timeRecordingController.saveEndTime)
 app.get('/timeResult', (req, res) => {
   res.render('timeResult',{title:"timeResult"});
 });
+app.get('/timeResult', timeRecordingController.getTimeRecording)
 
 app.get('/timeRecording', (req, res) => {
   res.render('timeRecording',{title:"timeRecording"});

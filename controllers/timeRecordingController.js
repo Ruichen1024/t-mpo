@@ -7,8 +7,7 @@ exports.saveStartTime = ( req, res ) => {
   let newTimeRecording = new TimeRecording(
    {
       userId: req.user._id,
-      startAt:new Date(),
-      status:'true',
+      startAt:new Date()
    }
   )
 
@@ -29,8 +28,7 @@ exports.saveEndTime = ( req, res ) => {
   let newTimeRecording = new TimeRecording(
    {
       userId: req.user._id,
-      endAt:new Date(),
-      status:'false',
+      endAt:new Date()
    }
   )
 
@@ -47,13 +45,13 @@ exports.saveEndTime = ( req, res ) => {
 
 
 // this displays all of the skills
-exports.get = ( req, res ) => {
+exports.getTimeRecording = ( req, res ) => {
   //gconsle.log('in getAllSkills')
-  MovieRating.find()
+  TimeRecording.find()
     .exec()
-    .then( ( ratings ) => {
-      res.render( 'quiz2', {
-        title:"Quiz2",ratings:ratings
+    .then( ( timeResult ) => {
+      res.render( 'timeResult', {
+        title:"timeResult",timeResult:timeResult
       } );
     } )
     .catch( ( error ) => {

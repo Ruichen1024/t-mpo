@@ -31,7 +31,7 @@ exports.saveGoal = ( req, res ) => {
 
 exports.updateGoal = (req, res) => {
     // Find note and update it with the request body
-    Goal.findByIdAndUpdate(req.params.noteId, {
+    Goal.findByIdAndUpdate(req.params._id, {
         active: req.body.active,
         success: req.body.success
     }, {new: true})
