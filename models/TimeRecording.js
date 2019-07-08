@@ -5,8 +5,8 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var timeRecordingSchema = Schema( {
   userId: ObjectId,
-  startAt: String,
-  endAt:String,
+  startAt: Date,
+  endAt: Date,
   status:Boolean,
 } );
 
