@@ -25,6 +25,9 @@ const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
 const timeRecordingController = require('./controllers/timeRecordingController')
+
+const goalController = require('./controllers/goalController')
+
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // here we set up authentication with passport
@@ -182,6 +185,10 @@ app.get('/forum',forumPostController.getAllForumPosts)
 app.post('/forum',forumPostController.saveForumPost)
 
 app.post('/forumDelete',forumPostController.deleteForumPost)
+
+app.post('/setGoal',goalController.saveGoal)
+
+app.get('/goals',goalController.getGoal)
 
 app.get('/griddemo', function(req, res, next) {
   res.render('griddemo',{title:"Grid Demo"});

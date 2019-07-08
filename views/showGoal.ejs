@@ -1,0 +1,34 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+  <div class="jumbotron">
+      <h1><%= goal.userName %>'s personal goal</h1>
+      <hr>
+  </div>
+
+  <table class="table table-dark">
+      <tbody>
+        <tr>
+          <td>daily deposit</td>
+          <td><%= goal.cash %></td>
+        </tr>
+        <tr>
+          <td>Goal lasting period</td>
+          <td><%= goal.numDay %></td>
+        </tr>
+        <tr>
+          <td>Goal start Date</td>
+          <td><%= goal.startAt %></td>
+        </tr>
+        <tr>
+          <td>Goal end Date</td>
+          <td><%= goal.endAt %></td>
+        </tr>
+        <tr>
+          <td>success days</td>
+          <td><%= goal.success %></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+<%- include('bootfooter') -%>

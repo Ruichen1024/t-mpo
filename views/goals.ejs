@@ -6,77 +6,87 @@
 font-family: 'Dosis', sans-serif;
 }
 </style>
+<form method="post" action="/processform">
+
+  start time: <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
+  end time: <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
+  <table class="table table-bordered table-dark">
+    <tbody>
+      <tr>
+        <td>sleep start time</td>
+        <td>
+          <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
+          <script>
+          $(function(){
+            $('#datetime12').combodate();
+          });
+          </script>
+        </td>
+      </tr>
+
+      <tr>
+        <td>wake up time</td>
+        <td>
+          <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
+          <script>
+          $(function(){
+            $('#datetime12').combodate();
+          });
+          </script>
+        </td>
+
+      </tr>
+      <tr>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select number of days</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+          </select>
+        </div>
+
+      </tr>
+      <tr>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">select payment amount</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+          </select>
+
+        </div>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+  <input type="submit" class = "btn btn-primary" Set</input>
+</form>
     <div class="jumbotron">
         <h1>Set your sleep schedule for today</h1>
     </div>
-    <table class="table table-bordered table-dark">
-      <tbody>
-        <tr>
-          <td>sleep start time</td>
-          <td>
-            <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
-            <script>
-            $(function(){
-              $('#datetime12').combodate();
-            });
-            </script>
-          </td>
-        </tr>
-
-        <tr>
-          <td>wake up time</td>
-          <td>
-            <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm">
-            <script>
-            $(function(){
-              $('#datetime12').combodate();
-            });
-            </script>
-          </td>
-
-        </tr>
-        <tr>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Select number of days</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-            </select>
-          </div>
-
-        </tr>
-        <tr>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">select payment amount</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-            </select>
-          </div>
-          </tr>
-      </tbody>
-    </table>
-
-
 
 <%- include('bootfooter') -%>
