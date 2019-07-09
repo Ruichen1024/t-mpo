@@ -4,11 +4,12 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var daySchema= Schema( {
-  userID: ObjectID,
+  name: String,
   startAt: Number,
   endAt: Number,
   cash: Number,
-  
+
+
 
 } );
 

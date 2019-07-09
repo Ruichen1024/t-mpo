@@ -14,7 +14,8 @@ exports.saveForumPost = ( req, res ) => {
     userID: req.ObjectID,
     startAt: req.startAt,
     endAt: req.endAt,
-    cash: req.cash
+    cash: req.cash,
+    name: req.name
 
    }
   )
