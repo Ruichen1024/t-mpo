@@ -14,7 +14,7 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/mydb' );
+mongoose.connect( 'mongodb://localhost/myDB' );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -153,6 +153,10 @@ app.get('/goals', isLoggedIn, function(req, res) {
 app.get('/editProfile',isLoggedIn, (req,res)=>{
   res.render('editProfile')
 })
+
+app.get('/sleep',isLoggedIn, (req,res)=>{
+  res.render('sleep', {title:"startSleep"})
+});
 
 app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
