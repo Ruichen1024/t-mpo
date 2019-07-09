@@ -1,8 +1,9 @@
 body {
   padding: 50px;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("https://us.123rf.com/450wm/julydfg/julydfg1103/julydfg110300206/9201017-black-leather-texture-background-.jpg?ver=6");
-  background-size: 35%;
+  background-image: url("/images/white.jpg");
+  background-size: 100%;
+  background-repeat:;
   position: relative;
 }
 

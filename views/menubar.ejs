@@ -3,7 +3,7 @@
 ― Homer, The Odyssey</marquee>
 <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="background-color: #e3f2fd;">
-  <a class="text-white nav-link active" href="/"><h2>tempo</h2></a>
+  <a class="navbar-brand" href="/">tempo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,43 +17,42 @@
       <% if (loggedIn) { %>
 
         <li class="nav-item active">
-          <a class="text-white nav-link active font-weight-bold" href="/timeRecording"><h4>start sleeping</h4></a>
+          <a class="nav-link" href="/timeRecording">Start Recording</a>
         </li>
 
 
       <li class="nav-item">
-        <a class="text-white nav-link active font-weight-bold" href="/calendar"><h4>calendar</h4></a>
+         <a class="nav-link active" href="/goals">My Sleep Goals</a>
       </li>
       <li class="nav-item">
-        <a class="text-white nav-link active font-weight-bold" href="/goals"><h4>goals</h4></a>
+         <a class="nav-link active" href="/goals">Goals</a>
       </li>
       <li class="nav-item">
-        <a class="text-white nav-link active font-weight-bold" href="/profile"><h4>profile</h4></a>
+         <a class="nav-link active" href="/goals">Profile</a>
       </li>
       <li class="nav-item">
         <div>
-        <a class="text-white nav-link active" href="/logout"> <h4>logout</h4></a>
+         <a class="nav-link active" href="/goals">logout</a>
         </div>
       </li>
 
       <li class="nav-item">
 
         <div>
-        <a class="text-white nav-link active font-weight-bold" href="/about"> <h4>about</h4></a>
+        <a class="nav-link active" href="/auth/google">About</a>
         </div>
       </li>
       <% } else { %>
         <li class="nav-item">
-          <a class="text-white nav-link active" href="/auth/google"> <h4>login<h4></a>
-
+          <a class="nav-link active" href="/auth/google"> Login</a>
         </li>
         <% }  %>
     </ul>
 
 
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2 text-white" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 text-white outline-white font-weight-bold" type="submit"><h7>Search</h7></button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 
   </div>
