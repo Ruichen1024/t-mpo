@@ -14,7 +14,7 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/mydb' );
+mongoose.connect( 'mongodb://localhost/myDB' );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -186,7 +186,7 @@ app.post('/forum',forumPostController.saveForumPost)
 
 app.post('/forumDelete',forumPostController.deleteForumPost)
 
-app.post('/setGoal',goalController.saveGoal)
+app.post('/processGoals',goalController.saveGoal)
 
 app.get('/goals',goalController.getGoal)
 
@@ -225,6 +225,10 @@ function processFormData(req,res,next){
 app.post('/processStart',timeRecordingController.saveStartTime)
 
 app.post('/processEnd',timeRecordingController.saveEndTime)
+
+app.get('/feedbackGoals', (req,res) => {
+  res.render('feedbackGoal',{title:"feedbackGoal"});
+});
 
 app.get('/timeResult', (req, res) => {
   res.render('timeResult',{title:"timeResult"});
