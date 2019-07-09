@@ -30,7 +30,6 @@ exports.saveWakeUp = ( req, res ) => {
    {
      endAt:new Date(),
      }
-   }
 )
 };
 

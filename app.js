@@ -14,7 +14,7 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/myDB' );
+mongoose.connect( 'mongodb://localhost/mydb' );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -25,7 +25,7 @@ const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
 const timeRecordingController = require('./controllers/timeRecordingController')
-
+const sleepController = require('./controllers/sleepController')
 const goalController = require('./controllers/goalController')
 
 // Authentication
@@ -163,6 +163,8 @@ app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
 
 app.post('/updateProfile',profileController.update)
+
+app.post('/sleepStart', sleepController.saveSleep)
 
 // add page for editProfile and views
 // add router for updateProfile and send browser to /profie
