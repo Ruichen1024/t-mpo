@@ -154,6 +154,10 @@ app.get('/editProfile',isLoggedIn, (req,res)=>{
   res.render('editProfile')
 })
 
+app.get('/sleep',isLoggedIn, (req,res)=>{
+  res.render('sleep', {title:"startSleep"})
+});
+
 app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
