@@ -154,6 +154,10 @@ app.get('/editProfile',isLoggedIn, (req,res)=>{
   res.render('editProfile')
 })
 
+app.get('/daypage',isLoggedIn, (req,res)=>{
+  res.render('daypage')
+})
+
 app.get('/sleep',isLoggedIn, (req,res)=>{
   res.render('sleep', {title:"startSleep"})
 });
