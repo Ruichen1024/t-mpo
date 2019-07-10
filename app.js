@@ -204,7 +204,7 @@ app.get('/griddemo', function(req, res, next) {
   res.render('griddemo',{title:"Grid Demo"});
 });
 
-
+app.post('/sleepStart',sleepController.saveSleep)
 
 app.get('/bmidemo', (req, res) => {
   res.render('bmidemo',{title:"BMI Demo"});
