@@ -162,6 +162,10 @@ app.get('/sleep',isLoggedIn, (req,res)=>{
   res.render('sleep', {title:"startSleep"})
 });
 
+app.get('/tournament',isLoggedIn, (req,res)=>{
+  res.render('tournament', {title:"Tournament"})
+});
+
 app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
