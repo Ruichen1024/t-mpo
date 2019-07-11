@@ -2,6 +2,7 @@
 <%- include('menubar') -%>
 <div class="jumbotron">
     <h1>Recording has been stopped.</h1>
+    <p>You slept <%= timeInHours.toFixed(3) %> hours</p>
     <p>Your Start Time is:<%= timeRecording.startAt %> </p>   <br>
     <p>Your End Time is:<%= timeRecording.endAt %> </p>   <br>
 </div>
