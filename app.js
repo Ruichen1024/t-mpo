@@ -162,6 +162,10 @@ app.get('/sleep',isLoggedIn, (req,res)=>{
   res.render('sleep', {title:"startSleep"})
 });
 
+app.get('/nap',isLoggedIn, (req,res)=>{
+  res.render('nap', {title:"nap"})
+});
+
 app.get('/tournament',isLoggedIn, (req,res)=>{
   res.render('tournament', {title:"Tournament"})
 });
