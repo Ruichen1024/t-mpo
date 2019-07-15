@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var apikey = require('./config/apikey');
 
 // AUTHENTICATION MODULES
@@ -26,6 +27,8 @@ const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
 const timeRecordingController = require('./controllers/timeRecordingController')
 const sleepController = require('./controllers/sleepController')
+
+
 const goalController = require('./controllers/goalController')
 
 // Authentication
@@ -141,8 +144,8 @@ app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile')
     });
 
-app.get('/schedule', isLoggedIn, function(req, res) {
-            res.render('schedule')
+app.get('/calendar', isLoggedIn, function(req, res) {
+            res.render('calendar')
     });
 
 app.get('/goals', isLoggedIn, function(req, res) {
@@ -175,8 +178,6 @@ app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
 
 app.post('/updateProfile',profileController.update)
-
-app.post('/sleepStart', sleepController.saveSleep)
 
 // add page for editProfile and views
 // add router for updateProfile and send browser to /profie
