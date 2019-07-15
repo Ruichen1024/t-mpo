@@ -175,6 +175,7 @@ let redirect;
                 cellButton.innerHTML = `${date}`;
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
+                    // add a value attribute  ... value="[month,date]"
                 } // color today's date
                 cell.appendChild(cellButton);
                 row.appendChild(cell);
@@ -187,10 +188,12 @@ let redirect;
         tbl.appendChild(row); // appending each row into calendar body.
     }
 
+
 redirect.onclick = function(){
 window.location.href = "/daypage";
-
 };
+
+// add eventlistener to all buttons which sets window location to /history/month/date
 
 
   }

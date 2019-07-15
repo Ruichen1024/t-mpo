@@ -15,7 +15,7 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/mydb' );
+mongoose.connect( 'mongodb://localhost/myDB' );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -165,6 +165,14 @@ app.get('/sleep',isLoggedIn, (req,res)=>{
   res.render('sleep', {title:"startSleep"})
 });
 
+app.get('/nap',isLoggedIn, (req,res)=>{
+  res.render('nap', {title:"nap"})
+});
+
+app.get('/tournament',isLoggedIn, (req,res)=>{
+  res.render('tournament', {title:"Tournament"})
+});
+
 app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
@@ -205,7 +213,7 @@ app.get('/griddemo', function(req, res, next) {
   res.render('griddemo',{title:"Grid Demo"});
 });
 
-
+app.post('/sleepStart',sleepController.saveSleep)
 
 app.get('/bmidemo', (req, res) => {
   res.render('bmidemo',{title:"BMI Demo"});

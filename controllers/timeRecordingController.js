@@ -25,24 +25,31 @@ exports.saveStartTime = ( req, res ) => {
 exports.saveEndTime = ( req, res ) => {
   //console.log("in saveSkill!")
   //console.dir(req)
-  let newTimeRecording = new TimeRecording(
-   {
-      userId: req.user._id,
-      endAt:new Date()
-   }
-  )
+  TimeRecording.find({userId:req.user._id}).sort({startAt:-1})
+    .exec()
+    .then( ( timeResults ) => {
+      let timeData = timeResults[0];
+      timeData.endAt = new Date();
+      timeData.save()
+      .then((result) => {
+        console.log("just saved time")
+        console.dir(result)
+        const timeInHours = (result.endAt.getTime()-result.startAt.getTime())/(1000*60*60);
+        res.render('timeResult',{timeRecording:result,timeInHours:timeInHours})
+      })
+      .catch((error) => {
+        console.log("error in saving the time:"+error.message)
+      })
 
-  //console.log("skill = "+newSkill)
-
-  .save()
-    .then( () => {
-      res.redirect( '/timeResult' );
+    })
+    .catch( ( error ) => {
+      console.log( "trying to update current timeResult:"+error.message );
+      return [];
     } )
-    .catch( error => {
-      res.send( error );
-    } );
-};
-
+    .then( () => {
+      //console.log( 'skill promise complete' );
+    })
+}
 
 // this displays all of the skills
 exports.getTimeRecording = ( req, res ) => {
