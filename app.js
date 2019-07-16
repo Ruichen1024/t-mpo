@@ -265,6 +265,10 @@ app.get('/timeREnd', (req, res) => {
   res.render('timeREnd',{title:"timeRecording"});
 });
 
+app.get('/timeREnd/BadSleeper/:tla/:tlo/:cla/clo', (req, res) => {
+  res.render('timeREnd',{title:"timeRecording"});
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
