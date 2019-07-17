@@ -13,7 +13,8 @@ User = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-const MONGODB_URI = '';
+const MONGODB_URI = 'mongodb://heroku_wt09xgpn:1cefvl60k26vcpfcp8ob17h6qi@ds151066.mlab.com:51066/heroku_wt09xgpn';
+const LOCAL_URI = 'mongodb://localhost/tempo'
 
 const mongoose = require( 'mongoose' );
 mongoose.connect(MONGODB_URI, { userNewUrlParser: true});
@@ -261,6 +262,10 @@ app.get('/timeRecording', (req, res) => {
 });
 
 app.get('/timeREnd', (req, res) => {
+  res.render('timeREnd',{title:"timeRecording"});
+});
+
+app.get('/timeREnd/BadSleeper/:tla/:tlo/:cla/clo', (req, res) => {
   res.render('timeREnd',{title:"timeRecording"});
 });
 
