@@ -101,6 +101,10 @@ app.get('/calendar', function(req,res){
   res.render('calendar',{})
 })
 
+app.get('/test', function(req,res){
+  res.render('testMap',{})
+})
+
 // route for logging out
 app.get('/logout', function(req, res) {
         req.session.destroy((error)=>{console.log("Error in destroying session: "+error)});

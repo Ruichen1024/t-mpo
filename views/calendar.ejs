@@ -1,6 +1,5 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
-let redirect;
 
   <div class="container col-sm-4 col-md-7 col-lg-8 mt-5">
     <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
@@ -171,7 +170,6 @@ let redirect;
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
                 var cellButton = document.createElement("button");
-                let redirect = cellButton;
                 cellButton.innerHTML = `${date}`;
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
@@ -189,7 +187,7 @@ let redirect;
     }
 
 
-redirect.onclick = function(){
+cellButton.onclick = function(){
 window.location.href = "/daypage";
 };
 
