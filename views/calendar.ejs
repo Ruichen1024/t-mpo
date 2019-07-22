@@ -1,6 +1,5 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
-let redirect;
 
   <div class="container col-sm-4 col-md-7 col-lg-8 mt-5">
     <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
@@ -171,8 +170,11 @@ let redirect;
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
                 var cellButton = document.createElement("button");
-                let redirect = cellButton;
                 cellButton.innerHTML = `${date}`;
+                cellButton.onclick = function(){
+                  var cDate = cellButton.innerHTML;
+                  window.location.href = "/daypage";
+                };
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
                     // add a value attribute  ... value="[month,date]"
@@ -188,10 +190,6 @@ let redirect;
         tbl.appendChild(row); // appending each row into calendar body.
     }
 
-
-redirect.onclick = function(){
-window.location.href = "/daypage";
-};
 
 // add eventlistener to all buttons which sets window location to /history/month/date
 
