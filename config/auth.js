@@ -2,8 +2,8 @@ module.exports = {
 
 
     'googleAuth' : {
-        'clientID': '98976945157-iuikvrvl5nif5gcumv2v902c2cflnvcu.apps.googleusercontent.com',
-        'clientSecret' : 'tYlTPSlMeCMrgrF5DPNSSl6e',
+        'clientID': '716839659815-u20a414au36cvd429aabd2thu418gitc.apps.googleusercontent.com',
+        'clientSecret' : 'XakdEefgHhwvaXsu14bpvCBM',
         'callbackURL' : 'https://temposleep.herokuapp.com/login/authorized'
     }
 
