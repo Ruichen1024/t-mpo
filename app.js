@@ -13,7 +13,7 @@ User = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-const MONGODB_URI = '';
+const MONGODB_URI = 'mongodb://heroku_08b9h9sf:284pk9fr4m4qiitapfadln47qa@ds253567.mlab.com:53567/heroku_08b9h9sf';
 
 const mongoose = require( 'mongoose' );
 mongoose.connect(MONGODB_URI, { userNewUrlParser: true});
