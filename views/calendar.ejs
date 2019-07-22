@@ -171,6 +171,10 @@
                 let cellText = document.createTextNode(date);
                 var cellButton = document.createElement("button");
                 cellButton.innerHTML = `${date}`;
+                cellButton.onclick = function(){
+                  var cDate = cellButton.innerHTML;
+                  window.location.href = "/daypage";
+                };
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
                     // add a value attribute  ... value="[month,date]"
@@ -186,10 +190,6 @@
         tbl.appendChild(row); // appending each row into calendar body.
     }
 
-
-cellButton.onclick = function(){
-window.location.href = "/daypage";
-};
 
 // add eventlistener to all buttons which sets window location to /history/month/date
 

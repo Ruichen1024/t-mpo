@@ -15,6 +15,7 @@
     "express-session": "^1.16.2",
     "geojson": "^0.5.0",
     "http-errors": "~1.6.3",
+    "jqeury": "0.0.1-security",
     "jquery-countdown": "^2.2.0",
     "mongoose": "^5.6.0",
     "morgan": "~1.9.1",
