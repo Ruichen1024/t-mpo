@@ -13,12 +13,9 @@ User = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-<<<<<<< HEAD
 const MONGODB_URI = 'mongodb://heroku_08b9h9sf:284pk9fr4m4qiitapfadln47qa@ds253567.mlab.com:53567/heroku_08b9h9sf';
-=======
-const MONGODB_URI = 'mongodb://heroku_wt09xgpn:1cefvl60k26vcpfcp8ob17h6qi@ds151066.mlab.com:51066/heroku_wt09xgpn';
-const LOCAL_URI = 'mongodb://localhost/tempo'
->>>>>>> c3f6554214f460fad540499d68988aca5e4ece1b
+
+
 
 const mongoose = require( 'mongoose' );
 mongoose.connect(MONGODB_URI, { userNewUrlParser: true});
