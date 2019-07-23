@@ -171,9 +171,11 @@
                 let cellText = document.createTextNode(date);
                 var cellButton = document.createElement("button");
                 cellButton.innerHTML = `${date}`;
-                cellButton.onclick = function(){
-                  var cDate = cellButton.innerHTML;
-                  window.location.href = "/daypage";
+                cellButton.onclick = function(event){
+                  console.dir(event)
+                  var cDate = event.target.innerHTML;
+                  console.log("in onClick: "+date)
+                  window.location.href = "/daypage"+"/"+year+"/"+month+"/"+cDate;
                 };
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");

@@ -13,8 +13,9 @@ User = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-const MONGODB_URI = 'mongodb://heroku_wt09xgpn:1cefvl60k26vcpfcp8ob17h6qi@ds151066.mlab.com:51066/heroku_wt09xgpn';
-const LOCAL_URI = 'mongodb://localhost/tempo'
+const MONGODB_URI = 'mongodb://heroku_08b9h9sf:284pk9fr4m4qiitapfadln47qa@ds253567.mlab.com:53567/heroku_08b9h9sf';
+
+
 
 const mongoose = require( 'mongoose' );
 mongoose.connect(MONGODB_URI, { userNewUrlParser: true});
@@ -166,6 +167,13 @@ app.get('/editProfile',isLoggedIn, (req,res)=>{
 
 app.get('/daypage',isLoggedIn, (req,res)=>{
   res.render('daypage')
+})
+
+app.get('/historyData',
+   isLoggedIn,
+   timeRecordingController.showAllTime,
+   (req,res)=>{
+       res.render('historyData')
 })
 
 app.get('/sleep',isLoggedIn, (req,res)=>{
