@@ -169,6 +169,13 @@ app.get('/daypage',isLoggedIn, (req,res)=>{
   res.render('daypage')
 })
 
+app.get('/historyData',
+   isLoggedIn,
+   timeRecordingController.showAllTime,
+   (req,res)=>{
+       res.render('historyData')
+})
+
 app.get('/sleep',isLoggedIn, (req,res)=>{
   res.render('sleep', {title:"startSleep"})
 });

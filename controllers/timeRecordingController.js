@@ -69,3 +69,23 @@ exports.getTimeRecording = ( req, res ) => {
       //console.log( 'skill promise complete' );
     } );
 };
+
+exports.showAllTime = ( req, res, next ) => {
+  //console.log("in saveSkill!")
+  //console.dir(req)]
+  console.log("in showAllTime")
+  TimeRecording.find({userId:req.user._id}).sort({startAt:-1})
+    .exec()
+    .then( ( historyData ) => {
+        console.log("found history data: "); console.dir(historyData)
+        res.locals.timeRecording = historyData
+        next()
+    })
+    .catch( ( error ) => {
+      console.log( "ERROR in showAllTime:"+error.message );
+      return [];
+    } )
+    .then( () => {
+      //console.log( 'skill promise complete' );
+    })
+}
