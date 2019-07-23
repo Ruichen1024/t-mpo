@@ -175,7 +175,7 @@
                   console.dir(event)
                   var cDate = event.target.innerHTML;
                   console.log("in onClick: "+date)
-                  window.location.href = "/daypage"+"/"+year+"/"+month+"/"+cDate;
+                  window.location.href = "/daypage"+"/"+year+"/"+(month+1)+"/"+cDate;
                 };
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
@@ -198,8 +198,9 @@
 
   }
   </script>
-
-
-
+  <br>
+  <div align="middle">
+      <a href="/historyData" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">All History Data</a>
+  </div>
 
 <%- include('bootfooter') -%>
