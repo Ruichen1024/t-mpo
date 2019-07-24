@@ -18,10 +18,18 @@
         <hr>
         <form method="post" action="/updateProfile">
             userName: <input type="text" name="userName" value="<%= user.userName %>"><br>
-            profilePicURL: <input type="text" name="profilePicURL"
-                              value="<%= user.profilePicURL %>"><br>
+            profilePicURL: <input type="file" name="profilePicURL" accept="image/png, image/jpeg"><br>
             zipcode: <input type="text" name="zipcode"
                          value="<%= user.zipcode %>"><br>
+            Wakeup Music: <select class="form-control" name="wakeup">
+                <option>Quiet_Morning</option>
+                <option>Healing_Senses</option>
+                <option>Shape_of_you</option>
+                <option>Cloud_Cascade</option>
+                <option>breathin</option>
+                <option>Cordillera_Breeze</option>
+                <option>Circle_of_life</option>
+              </select>
             <input type="submit" class="btn btn-lg btn-primary">
         </form>
 
