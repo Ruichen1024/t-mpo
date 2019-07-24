@@ -106,6 +106,8 @@ app.get('/test', function(req,res){
   res.render('testMap',{})
 })
 
+
+
 // route for logging out
 app.get('/logout', function(req, res) {
         req.session.destroy((error)=>{console.log("Error in destroying session: "+error)});
@@ -182,6 +184,10 @@ app.get('/sleep',isLoggedIn, (req,res)=>{
 
 app.get('/nap',isLoggedIn, (req,res)=>{
   res.render('nap', {title:"nap"})
+});
+
+app.get('/napend', function(req,res){
+  res.render('napend',{title:"napEnd"})
 });
 
 app.get('/tournament',isLoggedIn, (req,res)=>{
