@@ -171,7 +171,7 @@ app.get('/daypage',isLoggedIn, (req,res)=>{
 
 app.get('/historyData',
    isLoggedIn,
-   timeRecordingController.showAllTime,
+   timeRecordingController.showAllHistory,
    (req,res)=>{
        res.render('historyData')
 })

@@ -70,7 +70,7 @@ exports.getTimeRecording = ( req, res ) => {
     } );
 };
 
-exports.showAllTime = ( req, res, next ) => {
+exports.showAllHistory = ( req, res, next ) => {
   //console.log("in saveSkill!")
   //console.dir(req)]
   console.log("in showAllTime")
@@ -89,3 +89,23 @@ exports.showAllTime = ( req, res, next ) => {
       //console.log( 'skill promise complete' );
     })
 }
+
+exports.getOneHistory = ( req, res ) => {
+  //gconsle.log('in getAllSkills')
+  const id = req.params.id
+  console.log('the id is '+id)
+  Comment.findOne({_id:id})
+    .exec()
+    .then( ( comment ) => {
+      res.render( 'comment', {
+        comment:comment, title:"Comment"
+      } );
+    } )
+    .catch( ( error ) => {
+      console.log( error.message );
+      return [];
+    } )
+    .then( () => {
+      //console.log( 'skill promise complete' );
+    } );
+};

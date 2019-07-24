@@ -1,7 +1,7 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
     <div class="jumbotron">
-        <h1>All history data for <%= user._id %></h1>
+        <h1>All history data for <%= user.userName %></h1>
     </div>
     <ol>
     <% for(i = 0; i<timeRecording.length; i++){ console.dir(timeRecording[i].startAt) %>
