@@ -8,6 +8,8 @@ var timeRecordingSchema = Schema( {
   startAt: Date,
   endAt: Date,
   status:Boolean,
+  endDate: String,  //yyyy/mm/dd
+  sleepTime: Number
 } );
 
 module.exports = mongoose.model( 'TimeRecording', timeRecordingSchema );
