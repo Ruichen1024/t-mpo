@@ -1,17 +1,8 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
 
-
-
-<label for="exampleFormControlSelect1"><b><h2>Select the length of your Nap (number of hours)</h2></b></label>
-<select class="form-control" id="naphour">
-  <option>0.5</option>
-  <option>1</option>
-  <option>1.5</option>
-  <option>2</option>
-  <option>2.5</option>
-  <option>3</option>
-</select>
+<label for="exampleFormControlSelect1"><b><h2>The length of your <%= doWork.category %> (number of hours)</h2></b></label>
+<textarea id="hour" name="hour"><%= doWork.workHour %></textarea>
 
 <button onClick="set()" type="button" class="btn btn-primary" name="button">Set</button>
 
@@ -87,8 +78,11 @@
 <button onClick="start()" type="button" class="btn btn-warning" name="button">START</button>
 
 <script>
+
+  var timeinterval
+
   function set(){
-    var target = document.getElementById('naphour');
+    var target = document.getElementById('hour');
     return target.value;
   }
 
@@ -124,6 +118,8 @@
       clearInterval(timeinterval);
     };
 
+
+
     function updateClock() {
       var t = getTimeRemaining(endtime);
 
@@ -139,7 +135,7 @@
     }
 
     updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
+    timeinterval = setInterval(updateClock, 1000);
   }
 
     /**
@@ -152,6 +148,9 @@
 
 
   function start(){
+    if(timeinterval){
+        clearInterval(timeinterval);
+    };
     var target = set();
     var deadline = new Date(Date.parse(new Date()) + target*60*60*1000);
     //var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
