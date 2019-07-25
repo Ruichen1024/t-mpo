@@ -14,11 +14,11 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const MONGODB_URI = 'mongodb://heroku_08b9h9sf:284pk9fr4m4qiitapfadln47qa@ds253567.mlab.com:53567/heroku_08b9h9sf';
-
-
+const LOCAL_URI = 'mongodb://localhost:27017/tempo'
+console.log("mongodb is "+LOCAL_URI)
 
 const mongoose = require( 'mongoose' );
-mongoose.connect(MONGODB_URI, { userNewUrlParser: true});
+mongoose.connect(LOCAL_URI, { userNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -98,8 +98,10 @@ app.get('/login', function(req,res){
   res.render('login',{})
 })
 
-app.get('/calendar', function(req,res){
-  res.render('calendar',{})
+app.get('/calendar',
+  timeRecordingController.addSleepHours,
+  function(req,res){
+     res.render('calendar',{})
 })
 
 app.get('/test', function(req,res){
@@ -174,6 +176,7 @@ app.get('/daypage',isLoggedIn, (req,res)=>{
 app.get('/historyData',
    isLoggedIn,
    timeRecordingController.showAllHistory,
+   timeRecordingController.addSleepHours,
    (req,res)=>{
        res.render('historyData')
 })
