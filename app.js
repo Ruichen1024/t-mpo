@@ -31,8 +31,9 @@ const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
 const timeRecordingController = require('./controllers/timeRecordingController')
 const sleepController = require('./controllers/sleepController')
-const calendarController = require('./controllers/calendarController')
+const workController = require('./controllers/workController')
 
+const calendarController = require('./controllers/calendarController')
 const goalController = require('./controllers/goalController')
 
 // Authentication
@@ -194,8 +195,11 @@ app.get('/sleep',isLoggedIn, (req,res)=>{
   res.render('sleep', {title:"startSleep"})
 });
 
-app.get('/nap',isLoggedIn, (req,res)=>{
-  res.render('nap', {title:"nap"})
+app.get('/countdown', workController.getOneWork);
+
+
+app.get('/work',isLoggedIn, (req,res)=>{
+  res.render('work', {title:"work"})
 });
 
 app.get('/napend', function(req,res){
@@ -265,6 +269,8 @@ app.post('/processform', commentController.saveComment)
 app.get('/showComments', commentController.getAllComments)
 // app.use('/', indexRouter);  // this is how we use a router to handle the / path
 // but here we are more direct
+
+app.post('/setwork', workController.saveWork)
 
 app.get('/showComment/:id', commentController.getOneComment)
 
