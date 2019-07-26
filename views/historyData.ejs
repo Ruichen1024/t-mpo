@@ -48,7 +48,11 @@
             </div>
 
           </div>
-          <br>
+          <% if (i<timeRecording.length-1) { %>
+          <% if (timeRecording[i].endAt.toLocaleDateString()!= timeRecording[i+1].endAt.toLocaleDateString()) {%>
+            <br>
+          <%}%>
+            <%}%>
       <% } %>
     <% } %>
     </ol>
