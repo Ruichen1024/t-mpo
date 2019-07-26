@@ -201,6 +201,10 @@ app.get('/tournament',isLoggedIn, (req,res)=>{
   res.render('tournament', {title:"Tournament"})
 });
 
+app.get('/tset',isLoggedIn, (req,res)=>{
+  res.render('tset', {title:"Tournament Set Goal"})
+});
+
 app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 

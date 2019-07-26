@@ -30,7 +30,7 @@ exports.getOneWork = ( req, res ) => {
   //gconsle.log('in getAllSkills')
   const id = req.params.id
   console.log('the id is '+id)
-  User.findOne({_id:id})
+  User.find({_id:id})
     .sort({startAt: -1})
     .limit(1)
     .exec()
