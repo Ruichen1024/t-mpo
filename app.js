@@ -33,7 +33,7 @@ const timeRecordingController = require('./controllers/timeRecordingController')
 const sleepController = require('./controllers/sleepController')
 const workController = require('./controllers/workController')
 
-
+const calendarController = require('./controllers/calendarController')
 const goalController = require('./controllers/goalController')
 
 // Authentication
@@ -155,10 +155,11 @@ function isLoggedIn(req, res, next) {
 // we require them to be logged in to see their profile
 app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile')
-    });
+})
 
-app.get('/calendar', isLoggedIn, function(req, res) {
-            res.render('calendar')
+app.post('/calendar', isLoggedIn, function(req, res) {
+        res.render('calendar'),
+        calendarController.saveDate
     });
 
 app.get('/goals', isLoggedIn, function(req, res) {
@@ -170,9 +171,17 @@ app.get('/editProfile',isLoggedIn, (req,res)=>{
   res.render('editProfile')
 })
 
-app.get('/daypage',isLoggedIn, (req,res)=>{
+app.get('/daypage/:year/:month/:day',
+    timeRecordingController.showAllHistory,
+    calendarController.returnDate)
+
+app.get('/daypage',isLoggedIn,
+  //calendarController.returnDate,
+  timeRecordingController.showAllHistory,
+(req,res)=>{
   res.render('daypage')
 })
+
 
 app.get('/historyData',
    isLoggedIn,
