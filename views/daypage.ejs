@@ -24,7 +24,7 @@
 
 
     <% for(i = 0; i<timeRecording.length; i++){ console.log("i="+i); console.dir(timeRecording[i].startAt) %>
-     
+
        <% if (timeRecording[i].endAt.toLocaleDateString() == (month+"/"+day+"/"+year)) {%>
           <div class="row">
 
@@ -46,5 +46,11 @@
 
     </ol>
   </div>
+  <style>
+  .jumbotron {
+     /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+     background: rgba(255, 255, 255, 0.2);*/
+  }
+  </style>
 
 <%- include('bootfooter') -%>
