@@ -4,29 +4,27 @@
     <div class="jumbotron">
         <h1>Your sleep data on <%= month %>/<%= day%>/<%= year%></h1>
 
+
     <ol>
+        <div class="row">
 
-      <div class="row">
+          <div class="col-md-4">
+            <h4>Sleep Duration</h4>
+          </div>
 
-        <div class="col-md-4">
-          <h4>Sleep Duration</h4>
+          <div class="col-md-4">
+            <h4>Beginning Time</h4>
+          </div>
+
+          <div class="col-md-4">
+            <h4>Ending Time</h4>
+          </div>
+
         </div>
-
-        <div class="col-md-4">
-          <h4>Beginning Time</h4>
-        </div>
-
-        <div class="col-md-4">
-          <h4>Ending Time</h4>
-        </div>
-
-      </div>
 
 
     <% for(i = 0; i<timeRecording.length; i++){ console.log("i="+i); console.dir(timeRecording[i].startAt) %>
-       <% console.log("tlds="+timeRecording[i].endAt.toLocaleDateString()) %>
-       <% console.log("testval="+"7/24/2019" == (timeRecording[i].endAt.toLocaleDateString())) %>
-       <% console.log("date="+month+"/"+day+"/"+year) %>
+     
        <% if (timeRecording[i].endAt.toLocaleDateString() == (month+"/"+day+"/"+year)) {%>
           <div class="row">
 
@@ -45,6 +43,7 @@
           </div>
       <% } %>
     <% } %>
+
     </ol>
   </div>
 

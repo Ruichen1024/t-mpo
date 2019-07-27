@@ -57,7 +57,7 @@ exports.updateGoal = (req, res) => {
 exports.getGoal = ( req, res ) => {
   //gconsle.log('in getAllSkills')
   const id = req.params.id
-  Goal.findOne({_id:id})
+  Goal.findOne({userId:req.user._id}).sort({startAt:-1})
     .exec()
     .then( ( goals ) => {
       res.render( 'goals', {
