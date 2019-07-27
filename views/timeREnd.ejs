@@ -1,9 +1,12 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
+<br>
+<br>
 <div class="jumbotron">
-    <h1>Time has start recording.</h1>
-    <p>Click the "end" button to end recording time!
+    <h1 style="text-align:center;">Time has start recording</h1>
+    <p style="text-align:center;">Click the "end" button to end recording time!
        </p>
+       <div style="text-align:center;">
         <div class="spinner-grow text-primary" role="status">
           <span class="sr-only">Loading...</span>
         </div>
@@ -28,9 +31,16 @@
         <div class="spinner-grow text-dark" role="status">
           <span class="sr-only">Loading...</span>
         </div>
+      </div>
 </div>
+<style>
+.jumbotron {
+   /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(255, 255, 255, 0.2);*/
+}
+</style>
 
-<form method="post" action="/processEnd">
+<form method="post" action="/processEnd" style="text-align:center;">
 
   <input class="btn btn-lg btn-warning" type="submit" value="End">
 </form>
@@ -48,6 +58,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    text-align:center;
   }
 </style>
 <div id="map"></div>
