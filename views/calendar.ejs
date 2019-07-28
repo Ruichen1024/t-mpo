@@ -168,8 +168,10 @@
 
             else {
                 let cell = document.createElement("td");
+                cell.style.backgroundColor = "rgba(250, 250, 250, 1)";
                 let cellText = document.createTextNode(date);
                 var cellButton = document.createElement("button");
+                cellButton.setAttribute('class', 'btn btn-dark');
                 cellButton.innerHTML = `${date}`;
                 cellButton.onclick = function(event){
                   console.dir(event)

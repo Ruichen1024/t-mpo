@@ -1,7 +1,7 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
 
-<div class="jumbotron">
+<div class="jumbotron" style="text-align:center;">
     <h1>Set up Details of the Tournament</h1>
     <br>
     <p></p>
@@ -13,6 +13,8 @@
    background: rgba(255, 255, 255, 0.2);*/
 }
 </style>
+
+<div style="text-align:center;">
 
 <button onClick="code()" type="button" class="btn btn-primary" id="button">Get a Tournament Code</button>
 <hr>
@@ -30,6 +32,8 @@
   }
 </script>
 
+<br>
+<hr>
 <p>Set your personal Sleep goal for this Tournament</p>
 <select class="form-control" id="dailyHr" name="dailyHr">
   <option value="5">5</option>
@@ -53,8 +57,8 @@
   <option value="7">7</option>
 <select>
 <br>
-<p>End Date</p>
-<output name="code" id="code"></output>
+<b><p>End Date</p></b>
+<b><output name="date" id="date"></output></b>
 <hr>
 
 <button onClick="calcEnd()" type="button" class="btn btn-primary" id="button">Get</button>
@@ -65,7 +69,7 @@
     var l = document.getElementById('tlength');
     l = parseInt(l.value);
     var span = curr.getDate() + l;
-    var endDate = document.getElementById('code');
+    var endDate = document.getElementById('date');
     var endMonth;
     var endDay;
     if(span > 31){
@@ -78,6 +82,7 @@
     endDate.value = endMonth + "/" + endDay;
   }
 </script>
+<div>
 
 
 <%- include('bootfooter') -%>
