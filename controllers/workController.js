@@ -14,7 +14,6 @@ exports.saveWork = ( req, res ) => {
    }
   )
 
-  console.log(newWork.category)
 
   newWork.save()
     .then( () => {
@@ -30,9 +29,7 @@ exports.getOneWork = ( req, res ) => {
   //gconsle.log('in getAllSkills')
   const id = req.params.id
   console.log('the id is '+id)
-  User.find({_id:id})
-    .sort({startAt: -1})
-    .limit(1)
+  Work.findOne({userId:req.user._id}).sort({startAt:-1})
     .exec()
     .then( ( doWork ) => {
       res.render( 'doWork', {
