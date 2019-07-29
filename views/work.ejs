@@ -1,0 +1,210 @@
+<%- include('bootheader') -%>
+
+<style type="text/css">
+    marquee span {
+    margin-right: 100%;
+    }
+    marquee p {
+    white-space:nowrap;
+    margin-right: 1000px;
+    }
+    nav{
+      color: #6c7b95;
+    }
+</style>
+<marquee behavior="scroll" direction="left">
+  <b>“There is a time for many words, and there is also a time for sleep.” ― Homer, The Odyssey<span> </span>"Be concerned, not obsessed, with your health."</b>
+  </marquee>
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="background-color: #6c7b95;">
+  <a class="navbar-brand" href="/" style="color: #ff8080;">tempo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item">
+        <a class="text-white nav-link active font-weight-bold" href="/"><h4>Home</h4> <span class="sr-only">(current)</span></a>
+      </li> -->
+
+      <% if (loggedIn) { %>
+
+        <li class="nav-item active dropdown" style="color: #ff8080;">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ff8080;">
+           Sleep
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: #ff8080;">
+           <a class="dropdown-item" href="/timeRecording" style="color: #ff8080;">Start Sleeping</a>
+         </div>
+       </li>
+
+       <li class="nav-item active dropdown" style="color: #ff8080;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ff8080;">
+          Plan
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: #ff8080;">
+          <a class="dropdown-item" href="/goals" style="color: #ff8080;">Plan Your Sleep</a>
+          <a class="dropdown-item" href="/work" style="color: #ff8080;">Plan Your Day</a>
+
+        </div>
+
+        <li class="nav-item">
+             <a class="nav-link active" href="/tournament" style="color: #ff8080;"><b>Tournament</b></a>
+        </li>
+
+      <li class="nav-item">
+         <a class="nav-link active" href="/calendar" style="color: #ff8080;">History</a>
+      </li>
+
+      <li class="nav-item">
+
+        <div>
+        <a class="nav-link active" href="/about" style="color: #ff8080;">about</a>
+        </div>
+      </li>
+
+      <li class="nav-item active dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ff8080;">
+         Profiles
+       </a>
+       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <a class="dropdown-item" href="/profile" style="color: #ff8080;">My Profile</a>
+         <a class="dropdown-item" href="/editProfile" style="color: #ff8080;">Update Profile</a>
+       </div>
+     </li>
+
+     <li class="nav-item">
+       <div>
+        <a class="nav-link active" href="/logout" style="color: #ff8080;">logout</a>
+       </div>
+     </li>
+
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link active" href="/auth/google" style="color: #ff8080;"> Login</a>
+        </li>
+        <% }  %>
+    </ul>
+
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+<div class="jumbotron">
+  <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+    <h1 style="text-align:center; font-size:55px;"><b>Set your personal schedule for the next period of time</b></h1>
+    <p style="text-align:center;">Type in the work you plan to do and stick to your plan to have a daily report</p>
+</div>
+<style>
+.jumbotron {
+   /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(255, 255, 255, 0.2);*/
+}
+</style>
+
+<form method="post" action="/setwork" style="text-align:center;">
+
+<label for="exampleFormControlSelect1"><b><h2>Select the length of your schedule model (number of hours)</h2></b></label>
+<select class="form-control" name="workHour" id="workHour">
+  <option value="0.5">0.5</option>
+  <option value="1">1</option>
+  <option value="1.5">1.5</option>
+  <option value="2">2</option>
+  <option value="2.5">2.5</option>
+  <option value="3">3</option>
+  <option value="3.5">3.5</option>
+</select>
+
+<h2>Category</h2>
+<select class="form-control" name="category" id="category">
+  <option value="Nap">Nap</option>
+  <option value="Work">Work</option>
+  <option value="Gym">Gym</option>
+  <option value="Sports">Sports</option>
+  <option value="Trip">Trip</option>
+  <option value="Other">Other</option>
+</select>
+
+<h2>What do you plan to do in this period?</h2><textarea name="work" id="work" style="width: 500px" rows="5">This role is for facility managers and holds the highest permissions in the application.</textarea><br>
+
+<input type="submit" class="btn btn-lg btn-primary">
+
+</form>
+
+<hr>
+
+  <style>
+    body{
+    	text-align: center;
+      font-family: sans-serif;
+      font-weight: 100;
+      background-image: url("/images/6.jpg");
+      background-size: 100%;
+    }
+
+    h1{
+      color: #ff8080;
+      font-weight: 100;
+      font-size: 40px;
+      margin: 40px 0px 20px;
+    }
+
+    h2{
+      color: rgb(255,255,255);
+      font-weight: 100;
+      font-size: 28px;
+      font-family: Verdana, sans-serif;
+      margin: 40px 0px 20px;
+    }
+
+    p{
+      color: #daf1f9;
+      font-weight: 100;
+      font-size: 40px;
+      margin: 40px 0px 20px;
+    }
+    #clockdiv{
+    	font-family: sans-serif;
+    	color: #fff;
+    	display: inline-block;
+    	font-weight: 100;
+    	text-align: center;
+    	font-size: 30px;
+    }
+
+    #clockdiv > div{
+    	padding: 10px;
+    	border-radius: 3px;
+    	background: #00BF96;
+    	display: inline-block;
+    }
+
+    #clockdiv div > span{
+    	padding: 15px;
+    	border-radius: 3px;
+    	background: #00816A;
+    	display: inline-block;
+    }
+
+    .smalltext{
+    	padding-top: 5px;
+    	font-size: 16px;
+    }
+  </style>
+
+
+
+<%- include('bootfooter') -%>

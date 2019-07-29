@@ -1,6 +1,6 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
-<div class="jumbotron">
+<div class="jumbotron" style="text-align:center;">
 
     <h1>Recording has been stopped.</h1>
     <p>You slept <%= timeInHours.toFixed(3) %> hours on <%= timeRecording.startAt.toLocaleDateString() %> </p>
@@ -9,5 +9,11 @@
     <p>Your Start Time is <%= timeRecording.startAt.toLocaleTimeString() %> </p>
     <p>Your End Time is <%= timeRecording.endAt.toLocaleTimeString() %> </p>
 </div>
+<style>
+.jumbotron {
+   /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(255, 255, 255, 0.2);*/
+}
+</style>
 
 <%- include('bootfooter') -%>

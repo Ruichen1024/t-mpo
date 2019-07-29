@@ -14,11 +14,11 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const MONGODB_URI = 'mongodb://heroku_08b9h9sf:284pk9fr4m4qiitapfadln47qa@ds253567.mlab.com:53567/heroku_08b9h9sf';
-
-
+const LOCAL_URI = 'mongodb://localhost:27017/tempo'
+console.log("mongodb is "+LOCAL_URI)
 
 const mongoose = require( 'mongoose' );
-mongoose.connect(MONGODB_URI, { userNewUrlParser: true});
+mongoose.connect(LOCAL_URI, { userNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -31,8 +31,9 @@ const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
 const timeRecordingController = require('./controllers/timeRecordingController')
 const sleepController = require('./controllers/sleepController')
+const workController = require('./controllers/workController')
 
-
+const calendarController = require('./controllers/calendarController')
 const goalController = require('./controllers/goalController')
 
 // Authentication
@@ -98,13 +99,17 @@ app.get('/login', function(req,res){
   res.render('login',{})
 })
 
-app.get('/calendar', function(req,res){
-  res.render('calendar',{})
+app.get('/calendar',
+  timeRecordingController.addSleepHours,
+  function(req,res){
+     res.render('calendar',{})
 })
 
 app.get('/test', function(req,res){
   res.render('testMap',{})
 })
+
+
 
 // route for logging out
 app.get('/logout', function(req, res) {
@@ -150,10 +155,11 @@ function isLoggedIn(req, res, next) {
 // we require them to be logged in to see their profile
 app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile')
-    });
+})
 
-app.get('/calendar', isLoggedIn, function(req, res) {
-            res.render('calendar')
+app.post('/calendar', isLoggedIn, function(req, res) {
+        res.render('calendar'),
+        calendarController.saveDate
     });
 
 app.get('/goals', isLoggedIn, function(req, res) {
@@ -165,20 +171,47 @@ app.get('/editProfile',isLoggedIn, (req,res)=>{
   res.render('editProfile')
 })
 
-app.get('/daypage',isLoggedIn, (req,res)=>{
+app.get('/daypage/:year/:month/:day',
+    timeRecordingController.showAllHistory,
+    calendarController.returnDate)
+
+app.get('/daypage',isLoggedIn,
+  //calendarController.returnDate,
+  timeRecordingController.showAllHistory,
+(req,res)=>{
   res.render('daypage')
+})
+
+
+app.get('/historyData',
+   isLoggedIn,
+   timeRecordingController.showAllHistory,
+   timeRecordingController.addSleepHours,
+   (req,res)=>{
+       res.render('historyData')
 })
 
 app.get('/sleep',isLoggedIn, (req,res)=>{
   res.render('sleep', {title:"startSleep"})
 });
 
-app.get('/nap',isLoggedIn, (req,res)=>{
-  res.render('nap', {title:"nap"})
+app.get('/countdown', workController.getOneWork);
+
+
+app.get('/work',isLoggedIn, (req,res)=>{
+  res.render('work', {title:"work"})
+});
+
+app.get('/napend', function(req,res){
+  res.render('napend',{title:"napEnd"})
 });
 
 app.get('/tournament',isLoggedIn, (req,res)=>{
   res.render('tournament', {title:"Tournament"})
+});
+
+app.get('/tset',isLoggedIn, (req,res)=>{
+  res.render('tset', {title:"Tournament Set Goal"})
 });
 
 app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
@@ -240,6 +273,8 @@ app.post('/processform', commentController.saveComment)
 app.get('/showComments', commentController.getAllComments)
 // app.use('/', indexRouter);  // this is how we use a router to handle the / path
 // but here we are more direct
+
+app.post('/setwork', workController.saveWork)
 
 app.get('/showComment/:id', commentController.getOneComment)
 

@@ -29,8 +29,13 @@ exports.saveEndTime = ( req, res ) => {
     .exec()
     .then( ( timeResults ) => {
       let timeData = timeResults[0];
+      if (timeData.endAt==null) {
       timeData.endAt = new Date();
+      timeData.endDate = timeData.endAt.toDateString()
+      timeData.sleepTime = (timeData.endAt - timeData.startAt)/1000.0/3600
+      }
       timeData.save()
+
       .then((result) => {
         console.log("just saved time")
         console.dir(result)
@@ -69,3 +74,40 @@ exports.getTimeRecording = ( req, res ) => {
       //console.log( 'skill promise complete' );
     } );
 };
+
+exports.addSleepHours = (req,res,next) => {
+  TimeRecording.aggregate([
+    {$group:{_id:'$endDate',sleep:{$sum:'$sleepTime'}}}
+  ])
+  .exec()
+  .then((times) => {
+    console.log("the times are ")
+    console.dir(times)
+    res.locals.times = times
+    next()
+  })
+  .catch((error) => {
+    console.log("Error in addSleepHours:"+error.message)
+    res.send(error)
+  })
+}
+
+exports.showAllHistory = ( req, res, next ) => {
+  //console.log("in saveSkill!")
+  //console.dir(re
+  console.log("in showAllTime")
+  TimeRecording.find({userId:req.user._id}).sort({startAt:-1})
+    .exec()
+    .then( ( historyData ) => {
+        console.log("found history data: "); console.dir(historyData.length)
+        res.locals.timeRecording = historyData
+        next()
+    })
+    .catch( ( error ) => {
+      console.log( "ERROR in showAllTime:"+error.message );
+      return [];
+    } )
+    .then( () => {
+      //console.log( 'skill promise complete' );
+    })
+}

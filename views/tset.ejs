@@ -1,0 +1,183 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+
+<div class="jumbotron" style="text-align:center;">
+    <h1>Set up Details of the Tournament</h1>
+    <br>
+    <p></p>
+    <p></p>
+</div>
+<style>
+.jumbotron {
+   /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(255, 255, 255, 0.2);*/
+}
+</style>
+
+<!-- Draggable DIV -->
+<div id="mydiv">
+  <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+  <div id="mydivheader">Tournament Ranking</div>
+  <table class="table table-dark">
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<style>
+  #mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+  }
+
+  #mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+  }
+</style>
+
+<script>
+  // Make the DIV element draggable:
+  dragElement(document.getElementById("mydiv"));
+
+  function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+      // if present, the header is where you move the DIV from:
+      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+      // otherwise, move the DIV from anywhere inside the DIV:
+      elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // calculate the new cursor position:
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      // set the element's new position:
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+      // stop moving when mouse button is released:
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+</script>
+
+
+<div style="text-align:center;">
+
+<button onClick="code()" type="button" class="btn btn-primary" id="button">Get a Tournament Code</button>
+<hr>
+<output name="code" id="code"></output>
+
+<script>
+  function code(){
+    var code = Math.floor(10000000 + Math.random() * 90000000);
+    var code_area = document.getElementById('code');
+    var b = document.getElementById('button')
+    code_area.value = code;
+    if(code_area){
+      b.disabled = true;
+    }
+  }
+</script>
+
+<br>
+<hr>
+<p>Set your personal Sleep goal for this Tournament</p>
+<select class="form-control" id="dailyHr" name="dailyHr">
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+<select>
+<br>
+<p>Tournament Length</p>
+<select class="form-control" id="tlength" name="tlength">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+<select>
+<br>
+<b><p>End Date</p></b>
+<b><output name="date" id="date"></output></b>
+<hr>
+
+<button onClick="calcEnd()" type="button" class="btn btn-primary" id="button">Get</button>
+<hr>
+<button onClick="redirect()" type="button" class="btn btn-danger" id="button">Start</button>
+
+<script>
+  function calcEnd(){
+    var curr = new Date();
+    var l = document.getElementById('tlength');
+    l = parseInt(l.value);
+    var span = curr.getDate() + l;
+    var endDate = document.getElementById('date');
+    var endMonth;
+    var endDay;
+    if(span > 31){
+      endDay = span-31;
+      endMonth = curr.getMonth()+2;
+    } else{
+      endDay = span;
+      endMonth = curr.getMonth()+1;
+    }
+    endDate.value = endMonth + "/" + endDay;
+  }
+
+  function redirect(){
+    window.location.href = "/timeRecording"
+  }
+</script>
+
+
+
+
+
+<%- include('bootfooter') -%>
