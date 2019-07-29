@@ -3,7 +3,39 @@
 
 <iframe src="/musics/<%= user.wakeup %>.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
 
-<p><h2>Time is up!</h2></p>
+<hr>
+
+<div class="jumbotron" style="text-align:center;">
+    <h1>Time is up!</h1>
+    <p>Did you have a sweet dream?</p>
+</div>
+
+<style>
+.jumbotron {
+   /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(255, 255, 255, 0.2);*/
+}
+</style>
+
+<button onClick="advice()" type="button" class="btn btn-danger" id="button">Sleep Advice</button>
+<button onClick="menu()" type="button" class="btn btn-danger" id="button">Main Menu</button>
+<button onClick="redirect()" type="button" class="btn btn-danger" id="button">Sleep Data</button>
+
+<script>
+  function advice(){
+    window.location.href = "/advice"
+  }
+
+  function menu(){
+    window.location.href = "/"
+  }
+
+  function redirect(){
+    window.location.href = "/data"
+  }
+</script>
+
+
 <%#
 <audio controls autoplay id="audio-example">
   <source src="/musics/Healing_Senses.mp3" type="audio/mpeg">

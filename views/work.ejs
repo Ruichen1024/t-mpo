@@ -54,7 +54,7 @@
         </li>
 
       <li class="nav-item">
-         <a class="nav-link active" href="/calendar" style="color: #ff8080;">History</a>
+         <a class="nav-link active" href="/calendar" style="color: #ff8080;">Calendar</a>
       </li>
 
       <li class="nav-item">
@@ -105,13 +105,13 @@
 
 <div class="jumbotron">
   <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
-    <h1 style="text-align:center; font-size:55px;"><b>Set your personal schedule for the next period of time</b></h1>
+    <h1 style="text-align:center; font-size:40px;"><b>Set your personal schedule for the next period of time</b></h1>
     <p style="text-align:center;">Type in the work you plan to do and stick to your plan to have a daily report</p>
 </div>
 <style>
 .jumbotron {
    /*background: rgb(200, 54, 54); /* This is for ie8 and below */
-   background: rgba(255, 255, 255, 0.2);*/
+   background: rgba(255, 255, 255, 0.2);
 }
 </style>
 
@@ -139,7 +139,7 @@
 </select>
 
 <h2>What do you plan to do in this period?</h2><textarea name="work" id="work" style="width: 500px" rows="5">This role is for facility managers and holds the highest permissions in the application.</textarea><br>
-
+<hr>
 <input type="submit" class="btn btn-lg btn-primary">
 
 </form>
@@ -162,6 +162,23 @@
       margin: 40px 0px 20px;
     }
 
+    .form-control{
+      background-color: #CCD1D1;
+      color: #17202A;
+      width: 60%;
+      padding: 16px 20px;
+      margin: auto;
+    }
+
+    textarea{
+      font-size: 25px;
+      width: 100%;
+      border: 1px blue;
+      border-radius: 10px;
+      background-color: #CCD1D1;
+      color: #17202A;
+    }
+
     h2{
       color: rgb(255,255,255);
       font-weight: 100;
@@ -173,7 +190,7 @@
     p{
       color: #daf1f9;
       font-weight: 100;
-      font-size: 40px;
+      font-size: 25px;
       margin: 40px 0px 20px;
     }
     #clockdiv{
