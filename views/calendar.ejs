@@ -1,7 +1,7 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
 
-  <div class="container col-sm-4 col-md-7 col-lg-8 mt-5">
+  <div class="container col-sm-4 col-md-7 col-lg-8 mt-5" style="opacity:0.9;">
     <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
     <style>
     *{
@@ -25,7 +25,7 @@
           </tr>
           </thead>
 
-          <tbody id="calendar-body">
+          <tbody id="calendar-body" style="opacity:0.8;">
 
           </tbody>
       </table>
@@ -168,8 +168,10 @@
 
             else {
                 let cell = document.createElement("td");
+                cell.style.backgroundColor = "rgba(250, 250, 250, 1)";
                 let cellText = document.createTextNode(date);
                 var cellButton = document.createElement("button");
+                cellButton.setAttribute('class', 'btn btn-dark');
                 cellButton.innerHTML = `${date}`;
                 cellButton.onclick = function(event){
                   console.dir(event)

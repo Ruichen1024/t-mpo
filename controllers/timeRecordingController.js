@@ -39,7 +39,8 @@ exports.saveEndTime = ( req, res ) => {
       .then((result) => {
         console.log("just saved time")
         console.dir(result)
-        const timeInHours = (result.endAt.getTime()-result.startAt.getTime()/1000/3600);
+        const timeInHours = (result.endAt.getTime()-result.startAt.getTime())/(1000*60*60);
+
         res.render('timeResult',{timeRecording:result,timeInHours:timeInHours})
       })
       .catch((error) => {

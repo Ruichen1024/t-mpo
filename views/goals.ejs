@@ -6,6 +6,18 @@
 font-family: 'Dosis', sans-serif;
 }
 </style>
+
+<div class="jumbotron" style="text-align:center;">
+    <h1>Set up your personal daily sleep goal</h1>
+</div>
+
+<style>
+.jumbotron {
+   /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(255, 255, 255, 0.2);
+}
+</style>
+
 <form method="post" action="/processGoals">
 
 
@@ -13,10 +25,10 @@ font-family: 'Dosis', sans-serif;
   <table class="table table-bordered table-dark">
     <tbody>
       <tr>
-        <td>sleep start time</td>
+        <td><h4>sleep start time</h4></td>
 
         <td>
-          <select class="form-control" id="exampleFormControlSelect1" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="startAt" value="21-12-2012 8:30 pm">
+          <select class="form-control" id="exampleFormControlSelect3" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="startAt" value="21-12-2012 8:30 pm">
             <option>8pm</option>
             <option>9pm</option>
             <option>9:30pm</option>
@@ -41,10 +53,9 @@ font-family: 'Dosis', sans-serif;
       </tr>
 
       <tr>
-        <td>wake up time</td>
+        <td><h4>Set the length of sleep</h4></td>
         <td>
-          <label for="exampleFormControlSelect1">Set the length of sleep</label>
-          <select class="form-control" id="exampleFormControlSelect1" name="dailyHr">
+          <select class="form-control" id="exampleFormControlSelect2" name="dailyHr">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -124,5 +135,27 @@ font-family: 'Dosis', sans-serif;
   </table>
   <input type="submit" class = "btn btn-primary" Set</input>
 </form>
+
+<style>
+  label{
+    font-size:25px;
+  }
+
+  #exampleFormControlSelect1{
+    width: 50%;
+    margin: auto;
+  }
+
+  #exampleFormControlSelect2{
+    width: 50%;
+    margin: auto;
+  }
+
+  #exampleFormControlSelect3{
+    width: 50%;
+    margin: auto;
+  }
+</style>
+
 
 <%- include('bootfooter') -%>

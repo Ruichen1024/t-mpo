@@ -1,9 +1,15 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
 
-<div class="jumbotron">
+<div class="jumbotron" style="text-align:center;">
     <h1>Profiles</h1>
 </div>
+<style>
+.jumbotron {
+   /*background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(255, 255, 255, 0.2);*/
+}
+</style>
 <ol>
 <% for(i = 0; i<profiles.length; i++){  %>
     <li>
