@@ -24,8 +24,9 @@
 
 
     <% for(i = 0; i<timeRecording.length; i++){ console.log("i="+i); console.dir(timeRecording[i].startAt) %>
-
-       <% if (timeRecording[i].endAt.toLocaleDateString() == (month+"/"+day+"/"+year)) {%>
+    <% if (timeRecording[i].startAt!=null && timeRecording[i].endAt!=null) {%>
+     
+       <% if (timeRecording[i].startAt.toLocaleDateString() == (month+"/"+day+"/"+year)) {%>
           <div class="row">
 
             <div class="col-md-4">
@@ -37,10 +38,11 @@
             </div>
 
             <div class="col-md-4">
-              <p>To <%= timeRecording[i].endAt.toLocaleTimeString() %> </p>
+              <p>To <%= timeRecording[i].endAt %> </p>
             </div>
 
           </div>
+      <% } %>
       <% } %>
     <% } %>
 
